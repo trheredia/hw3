@@ -67,6 +67,12 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
+struct testFunctor{
+  bool operator()(int x) const {
+    return x > 10;
+  }
+};
+
 
 
 
@@ -86,6 +92,9 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    head = llfilter(head, testFunctor());
+    cout << "Filtered list: ";
+    print(head);
 
 
 
